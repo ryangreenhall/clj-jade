@@ -7,7 +7,6 @@
 
 (defn set-template-dir
   [config template-dir-path]
-  (println "setting template dir")
   (.setTemplateLoader config (FileTemplateLoader. template-dir-path "UTF-8")))
 
 (defn pretty-print
@@ -34,7 +33,6 @@
    the most recent invocation will be used when rendering templates"
   [opts]
   `(let [opts# ~opts]
-     (println "Jade is being configured..." (:template-dir opts#) (:cache? opts#))
      (default-config (create-config opts#))))
 
 (defn- template

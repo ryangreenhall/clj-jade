@@ -2,10 +2,16 @@
   (:require [clj-jade.core :as jade])
   (:use clojure.test))
 
-(jade/configure {;;:template-dir "examples/templates/"
-                 :pretty-print true
+(jade/configure {:pretty-print true
                  :cache? true})
 
 (deftest rendering
   (testing "Parameter substitution"
-    (is (.contains (jade/render "examples/templates/home.jade" {"name" "Jade"}) "Hello Jade"))))
+    (is (.contains (jade/render "examples/templates/home.jade" {"name" "Jade"}) "Hello Jade")))
+
+  (testing "with base template directory specified"
+    (jade/configure {:template-dir "examples/templates/"
+                     :pretty-print true
+                     :cache? true})
+
+    (is (.contains (jade/render "home.jade" {"name" "Jade"}) "Hello Jade"))))
