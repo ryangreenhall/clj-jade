@@ -1,18 +1,20 @@
 (ns clj-jade.core
   (:import [de.neuland.jade4j JadeConfiguration]))
 
+;; Maintains the configuration to be used when rendering templates.
 (defonce _config (atom (JadeConfiguration.)))
 
 (defn default-config
-  ""
+  "Changes the underlying config to the config specified"
   [config]
   (reset! _config config))
 
-(defn configure
+(defmacro configure
   "Configures the underlying JadeConfig with the options passed. The config created upon
    the most recent invocation will be used when rendering templates"
   [opts]
-  (default-config config))
+  `(let [opts# ~opts]
+     (default-config @_config)))
 
 (defn- template
   [template-path]
