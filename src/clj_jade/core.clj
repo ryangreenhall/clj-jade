@@ -3,20 +3,31 @@
            [de.neuland.jade4j.template FileTemplateLoader]))
 
 ;; Maintains the configuration to be used when rendering templates.
-(defonce _config (atom (JadeConfiguration.)))
-
+(def config (atom (JadeConfiguration.)))
 
 (defn set-template-dir
   [config template-dir-path]
+  (println "setting template dir")
   (.setTemplateLoader config (FileTemplateLoader. template-dir-path "UTF-8")))
 
-;;TemplateLoader loader = new FileTemplateLoader("/templates/", "UTF-8");
-;;config.setTemplateLoader(loader);
+(defn pretty-print
+  [config is-pretty]
+  (.setPrettyPrint config is-pretty))
+
+(defn create-config
+  [opts]
+  (let [jade-config (JadeConfiguration.)]
+    (when (:template-dir opts)
+      (set-template-dir jade-config (:template-dir opts)))
+
+    (when (:pretty-print opts)
+      (pretty-print jade-config (:pretty-print opts)))
+    jade-config))
 
 (defn default-config
   "Changes the underlying config to the config specified"
-  [config]
-  (reset! _config config))
+  [new-config]
+  (reset! config new-config))
 
 (defmacro configure
   "Configures the underlying JadeConfig with the options passed. The config created upon
@@ -24,12 +35,12 @@
   [opts]
   `(let [opts# ~opts]
      (println "Jade is being configured..." (:template-dir opts#) (:cache? opts#))
-     (default-config @_config)))
+     (default-config (create-config opts#))))
 
 (defn- template
   [template-path]
-  (.getTemplate @_config template-path))
+  (.getTemplate @config template-path))
 
 (defn render
   [template-path data]
-  (.renderTemplate @_config (template template-path) data))
+  (.renderTemplate @config (template template-path) data))

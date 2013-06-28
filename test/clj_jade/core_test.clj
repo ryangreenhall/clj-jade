@@ -2,7 +2,7 @@
   (:require [clj-jade.core :as jade])
   (:use clojure.test))
 
-(jade/configure {:template-dir "/examples/templates/"
+(jade/configure {;;:template-dir "examples/templates/"
                  :pretty-print true
                  :cache? true})
 
