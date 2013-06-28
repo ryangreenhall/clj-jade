@@ -1,6 +1,6 @@
 # clj-jade
 
-A thin wrapper around jade4j.
+A thin wrapper around [jade4j](https://github.com/neuland/jade4j)
 
 ## Example
 
@@ -17,7 +17,7 @@ html
         li #{guitar.name} by #{guitar.maker} 
 ```
 
-Java model
+Clojure data
 
 ```clojure
 {"pageName" "My Guitars"
