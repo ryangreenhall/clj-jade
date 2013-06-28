@@ -1,6 +1,6 @@
 # clj-jade
 
-A thin wrapper around [jade4j](https://github.com/neuland/jade4j)
+A thin wrapper around [jade4j](https://github.com/neuland/jade4j) to promote use with the Clojure community.
 
 ## Example
 
@@ -61,8 +61,12 @@ The default clj-jade configuration can be configured as follows.
                                       {"model" "Telecaster" "maker" "Fender"}]})
 ```
 
+## Acknowledgements
+
+Thanks to the authors of [jade4j](https://github.com/neuland/jade4j) for bringing jade to the JVM.
+
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 
 
 Distributed under the Eclipse Public License, the same as Clojure.
