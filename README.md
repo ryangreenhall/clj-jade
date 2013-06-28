@@ -68,7 +68,7 @@ The default clj-jade configuration can be configured as follows.
 ```
 ## Layouts and Includes
 
-Please refer to the examples in the source to see how templates can be managed using templates and includes. 
+Please refer to the examples in the source to see how templates can be managed using layouts and includes. 
 
 ## Acknowledgements
 
