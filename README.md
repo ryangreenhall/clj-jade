@@ -20,7 +20,7 @@ html
   body
     ol.guitars
       for guitar in guitars
-        li #{guitar.maker} #{guitar.name} 
+        li #{guitar.maker} #{guitar.model} 
 ```
 
 
