@@ -60,6 +60,9 @@ The default clj-jade configuration can be configured as follows.
                            "guitars" [{"model" "Hummingbird" "maker" "Gibson"} 
                                       {"model" "Telecaster" "maker" "Fender"}]})
 ```
+## Layouts and Includes
+
+Please refer to the examples in the source to see how templates can be managed using templates and includes. 
 
 ## Acknowledgements
 
