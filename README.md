@@ -2,6 +2,12 @@
 
 A thin wrapper around [jade4j](https://github.com/neuland/jade4j) to promote use with the Clojure community.
 
+## Artifacts
+
+'''clojure
+[clj-jade "0.1.0-SNAPSHOT"]
+'''
+
 ## Example
 
 index.jade
