@@ -35,12 +35,11 @@
   [new-config]
   (reset! config new-config))
 
-(defmacro configure
+(defn configure
   "Configures the underlying JadeConfig with the options passed. The config created upon
    the most recent invocation will be used when rendering templates"
   [opts]
-  `(let [opts# ~opts]
-     (default-config (create-config opts#))))
+  (default-config (create-config opts)))
 
 (defn- template
   [template-path]
