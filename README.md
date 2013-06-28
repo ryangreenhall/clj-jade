@@ -14,15 +14,34 @@ html
   body
     ol.guitars
       for guitar in guitars
-        li #{guitar.name} by #{guitar.maker} 
+        li #{guitar.maker} #{guitar.name} 
 ```
 
-Clojure data
 
 ```clojure
-{"pageName" "My Guitars"
- "guitars" [{"model" "Hummingbird" "maker" "Gibson"} 
-            {"model" "Telecaster" "maker" "Fender"}]}
+
+(require '[clj-jade.core :as jade])
+
+(jade/render "index.jade" {"pageName" "My Guitars"
+                           "guitars" [{"model" "Hummingbird" "maker" "Gibson"} 
+                                      {"model" "Telecaster" "maker" "Fender"}]})
+```
+
+Produces:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Bookshelf</title>
+  </head>
+  <body>
+    <ol class="guitars">
+      <li>Gibson Hummingbird</li>
+      <li>Fender Telecaster</li>
+    </ol>
+  </body>
+</html>
 ```
 
 ## License
