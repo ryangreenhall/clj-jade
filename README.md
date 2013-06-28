@@ -1,10 +1,29 @@
 # clj-jade
 
-A Clojure library designed to ... well, that part is up to you.
+A thin wrapper around jade4j.
 
-## Usage
+## Example
 
-FIXME
+index.jade
+
+```
+!!! 5
+html
+  head
+    title= pageName
+  body
+    ol.guitars
+      for guitar in guitars
+        li #{guitar.name} by #{guitar.maker} 
+```
+
+Java model
+
+```clojure
+{"pageName" "My Guitars"
+ "guitars" [{"model" "Hummingbird" "maker" "Gibson"} 
+            {"model" "Telecaster" "maker" "Fender"}]}
+```
 
 ## License
 
