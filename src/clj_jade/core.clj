@@ -14,6 +14,7 @@
    the most recent invocation will be used when rendering templates"
   [opts]
   `(let [opts# ~opts]
+     (println "Jade is being configured...")
      (default-config @_config)))
 
 (defn- template

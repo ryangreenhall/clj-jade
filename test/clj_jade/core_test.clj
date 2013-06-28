@@ -1,7 +1,9 @@
 (ns clj-jade.core-test
-  (:use clojure.test
-        clj-jade.core))
+  (:require [clj-jade.core :as jade])
+  (:use clojure.test))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(jade/configure {})
+
+(deftest rendering
+  (testing "Parameter substitution"
+    (is (.contains (jade/render "examples/templates/home.jade" {"name" "Jade"}) "Hello Jade"))))
