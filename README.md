@@ -44,6 +44,23 @@ Produces:
 </html>
 ```
 
+## Configuration 
+
+The default clj-jade configuration can be configured as follows.
+
+```clojure
+
+(require '[clj-jade.core :as jade])
+
+(jade/configure {:template-dir "examples/templates/"
+                 :pretty-print true
+                 :cache? true})
+
+(jade/render "index.jade" {"pageName" "My Guitars"
+                           "guitars" [{"model" "Hummingbird" "maker" "Gibson"} 
+                                      {"model" "Telecaster" "maker" "Fender"}]})
+```
+
 ## License
 
 Copyright © 2013 FIXME
