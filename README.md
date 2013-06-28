@@ -33,7 +33,7 @@ Produces:
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Bookshelf</title>
+    <title>My Guitars</title>
   </head>
   <body>
     <ol class="guitars">
