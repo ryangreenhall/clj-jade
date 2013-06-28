@@ -10,8 +10,6 @@
     (is (.contains (jade/render "examples/templates/home.jade" {"name" "Jade"}) "Hello Jade")))
 
   (testing "with base template directory specified"
-    (jade/configure {:template-dir "examples/templates/"
-                     :pretty-print true
-                     :cache? true})
+    (jade/configure {:template-dir "examples/templates/"})
 
     (is (.contains (jade/render "home.jade" {"name" "Jade"}) "Hello Jade"))))

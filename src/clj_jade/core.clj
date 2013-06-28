@@ -13,6 +13,10 @@
   [config is-pretty]
   (.setPrettyPrint config is-pretty))
 
+(defn cache
+  [config should-cache]
+  (.setCaching config false))
+
 (defn create-config
   [opts]
   (let [jade-config (JadeConfiguration.)]
@@ -21,6 +25,9 @@
 
     (when (:pretty-print opts)
       (pretty-print jade-config (:pretty-print opts)))
+
+    (when (:cache? opts)
+      (cache jade-config (:cache? opts)))
     jade-config))
 
 (defn default-config
