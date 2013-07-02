@@ -1,4 +1,4 @@
-(defproject clj-jade "0.1.0"
+(defproject clj-jade "0.1.1"
   :description "Thin wrapper around jade4j"
   :url "https://github.com/ryangreenhall/clj-jade"
   :license {:name "Eclipse Public License"
