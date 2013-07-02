@@ -1,5 +1,5 @@
-(defproject clj-jade "0.1.0-SNAPSHOT"
-  :description "Thin wrapper around jade4j to promote wider use within the clojure community"
+(defproject clj-jade "0.1.0"
+  :description "Thin wrapper around jade4j"
   :url "https://github.com/ryangreenhall/clj-jade"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
