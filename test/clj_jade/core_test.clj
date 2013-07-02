@@ -6,10 +6,10 @@
                  :cache? true})
 
 (deftest rendering
-  (testing "Parameter substitution"
+  (testing "Parameter substitution with strings as keys"
     (is (.contains (jade/render "examples/templates/home.jade" {"name" "Jade"}) "Hello Jade")))
 
-  (testing "Parameter substitution with clojure keywords"
+  (testing "Parameter substitution with clojure keywords as keys"
 
     (is (.contains (jade/render "examples/templates/home.jade" {:name "Jade"}) "Hello Jade")))
 
