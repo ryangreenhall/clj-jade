@@ -5,7 +5,7 @@ A thin wrapper around [jade4j](https://github.com/neuland/jade4j) to promote use
 ## Artifacts
 
 ```clojure
-[clj-jade "0.1.2"]
+[clj-jade "0.1.3"]
 ```
 
 ## Example
