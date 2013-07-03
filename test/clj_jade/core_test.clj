@@ -10,7 +10,6 @@
     (is (.contains (jade/render "examples/templates/home.jade" {"name" "Jade"}) "Hello Jade")))
 
   (testing "Parameter substitution with clojure keywords as keys"
-
     (is (.contains (jade/render "examples/templates/home.jade" {:name "Jade"}) "Hello Jade")))
 
   (testing "with base template directory specified"
