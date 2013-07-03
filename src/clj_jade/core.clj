@@ -1,4 +1,5 @@
 (ns clj-jade.core
+  (:require clojure.walk)
   (:import [de.neuland.jade4j JadeConfiguration]
            [de.neuland.jade4j.template FileTemplateLoader]))
 
