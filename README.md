@@ -31,6 +31,12 @@ html
 (jade/render "index.jade" {"pageName" "My Guitars"
                            "guitars" [{"model" "Hummingbird" "maker" "Gibson"} 
                                       {"model" "Telecaster" "maker" "Fender"}]})
+                                      
+;; or
+
+(jade/render "index.jade" {:pageName "My Guitars"
+                           :guitars [{:model "Hummingbird" :maker "Gibson"} 
+                                     {:model "Telecaster"  :maker "Fender"}]})
 ```
 
 Produces:
