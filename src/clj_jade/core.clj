@@ -35,7 +35,7 @@
       (cache jade-config (:cache? opts)))
 
     (when (:helpers opts)
-      (set-shared-vars jade-config (:helpers opts)))
+      (set-shared-vars jade-config (assoc {} "helpers" (:helpers opts))))
     jade-config))
 
 (defn default-config
