@@ -18,6 +18,10 @@
   [config should-cache]
   (.setCaching config false))
 
+(defn set-shared-vars
+  [config vars]
+  (.setSharedVariables config vars))
+
 (defn create-config
   [opts]
   (let [jade-config (JadeConfiguration.)]
@@ -29,6 +33,9 @@
 
     (when (:cache? opts)
       (cache jade-config (:cache? opts)))
+
+    (when (:helpers opts)
+      (set-shared-vars jade-config (:helpers opts)))
     jade-config))
 
 (defn default-config

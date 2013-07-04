@@ -14,5 +14,10 @@
 
   (testing "with base template directory specified"
     (jade/configure {:template-dir "examples/templates/"})
+    (is (.contains (jade/render "home.jade" {"name" "Jade"}) "Hello Jade")))
 
-    (is (.contains (jade/render "home.jade" {"name" "Jade"}) "Hello Jade"))))
+
+  (testing "helpers"
+    (jade/configure {:template-dir "examples/templates/"
+                     :helpers {"math" "math-helper"}})
+    (is (.contains (jade/render "home.jade" {"name" "Jade"}) "math-helper"))))
