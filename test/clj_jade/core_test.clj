@@ -1,4 +1,5 @@
 (ns clj-jade.core-test
+  (:import [clj_jade.example_helper.math])
   (:require [clj-jade.core :as jade])
   (:use clojure.test))
 
@@ -19,5 +20,5 @@
 
   (testing "helpers"
     (jade/configure {:template-dir "examples/templates/"
-                     :helpers {"math" "math-helper"}})
-    (is (.contains (jade/render "home.jade" {"name" "Jade"}) "math-helper"))))
+                     :helpers {"math" (clj_jade.example_helper.math.)}})
+    (is (.contains (jade/render "helpers.jade" {"number" 2.6}) "3"))))
