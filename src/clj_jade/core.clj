@@ -1,5 +1,6 @@
 (ns clj-jade.core
-  (:require clojure.walk)
+  (:require [clojure.string :refer [split capitalize lower-case]]
+            [clojure.walk :refer [postwalk]])
   (:import [de.neuland.jade4j JadeConfiguration]
            [de.neuland.jade4j.template FileTemplateLoader]))
 
@@ -53,6 +54,23 @@
   [template-path]
   (.getTemplate @config template-path))
 
+(defn- to-camel-back
+  "Transfroms a string into camel-back notation if it has any non ASCII characters.
+   Example:
+   username  -> username
+   user-name -> userName
+   user.name -> userName"
+  [^String key]
+  (let [[word & more] (split key #"[^a-zA-Z]")]
+    (apply str (cons (lower-case word) (map capitalize more)))))
+
+(defn- camel-back-keys
+  "Recursively transforms all map keys from keywords to strings in camel-back notation."
+  [m]
+  (let [f (fn [[k v]] (if (keyword? k) [(to-camel-back (name k)) v] [(to-camel-back k) v]))]
+    ;; only apply to maps
+    (postwalk (fn [x] (if (map? x) (into {} (map f x)) x)) m)))
+
 (defn render
   [template-path data]
-  (.renderTemplate @config (template template-path) (clojure.walk/stringify-keys data)))
+  (.renderTemplate @config (template template-path) (camel-back-keys data)))
