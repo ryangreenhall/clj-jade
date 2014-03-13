@@ -17,6 +17,9 @@
     (jade/configure {:template-dir "examples/templates/"})
     (is (.contains (jade/render "home.jade" {"name" "Jade"}) "Hello Jade")))
 
+  (testing "An empty option can be removed"
+    (is (= (jade/render "home.jade") (jade/render "home.jade" {}))))
+
 
   (testing "helpers"
     (jade/configure {:template-dir "examples/templates/"
