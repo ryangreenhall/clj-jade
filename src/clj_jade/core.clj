@@ -54,5 +54,6 @@
   (.getTemplate @config template-path))
 
 (defn render
-  [template-path data]
-  (.renderTemplate @config (template template-path) (clojure.walk/stringify-keys data)))
+  ([template-path] (render template-path {}))
+  ([template-path data]
+  (.renderTemplate @config (template template-path) (clojure.walk/stringify-keys data))))
