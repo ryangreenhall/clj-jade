@@ -105,7 +105,7 @@ define helpers for date formatting, rounding etc.
 !!! 5
 html
   body
-    h1 #(helpers.math.round(number))
+    h1 #{helpers.math.round(number)}
 ```
 
 ```clojure
