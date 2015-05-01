@@ -12,7 +12,7 @@
 
   (testing "Parameter substitution with clojure keywords as keys"
     (is (.contains (jade/render "examples/templates/home.jade" {:name "Jade"}) "Hello Jade")))
-  
+
   (testing "Rendering a page without passing the parameters map"
     (is (.contains (jade/render "examples/templates/noparam.jade") "Hello no passed params")))
 
@@ -24,4 +24,5 @@
   (testing "helpers"
     (jade/configure {:template-dir "examples/templates/"
                      :helpers {"math" (clj_jade.example_helper.math.)}})
-    (is (.contains (jade/render "helpers.jade" {"number" 2.6}) "3"))))
+    (is (.contains (jade/render "helpers.jade" {"number" 2.6}) "3")))
+)
